@@ -77,7 +77,7 @@
 .grid {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     flex-wrap: wrap;
     max-width: 800px;
     margin-top: 3rem;
