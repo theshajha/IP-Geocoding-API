@@ -1,4 +1,4 @@
-import { getGeoData } from './getGeoData';
+import { getGeoData } from '/lib/getGeoData';
 
 const rateLimit = {
     windowMs: 60 * 1000, // 1 minute
