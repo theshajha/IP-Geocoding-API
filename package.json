@@ -1,0 +1,40 @@
+{
+  "name": "ip-geocoding-api",
+  "version": "1.0.0",
+  "description": "IP Geocoding API",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "IP GeoLocation",
+    "IP Geocoding",
+    "IP Geolocation API",
+    "IP Geocoding API",
+    "IP Location",
+    "API"
+  ],
+  "author": "Shashank Jha",
+  "license": "MIT",
+  "dependencies": {
+    "@maxmind/geoip2-node": "^4.2.0",
+    "@vercel/node": "^2.15.6",
+    "apicache": "^1.6.3",
+    "axios": "^1.4.0",
+    "country-data": "^0.0.31",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.8.0",
+    "express-throttle": "^2.0.0",
+    "geo-tz": "^7.0.7",
+    "geoip-lite": "^1.4.7",
+    "helmet": "^7.0.0",
+    "libphonenumber-js": "^1.10.41",
+    "lodash-id": "^0.14.1",
+    "lowdb": "^6.0.1",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  }
+}
