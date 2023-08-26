@@ -4,18 +4,6 @@
 
 IP Geocoding API is a robust, scalable, and easy-to-use API for IP-based geolocation. Hosted at [ip-geocode.tinyapi.co](https://ip-geocode.tinyapi.co), this API provides detailed information about the geographical location, currency, and other details based on the IP address.
 
-## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [API Endpoints](#api-endpoints)
-- [Usage](#usage)
-- [Rate Limiting](#rate-limiting)
-- [Error Handling](#error-handling)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-
 ## Features
 
 - **Auto IP Detection**: Automatically identifies the client's IP.
