@@ -1,22 +1,34 @@
-import { getGeoData } from '../../lib/getGeoData';
-import { rateLimiter } from '../../lib/rateLimiter';
+import { getGeoData } from './getGeoData';
+
+const rateLimit = {
+    windowMs: 60 * 1000, // 1 minute
+    max: 5, // 5 requests
+    ipCache: {}
+};
 
 export default async function handler(req, res) {
-    const rateLimitStatus = rateLimiter(req, res);
-    if (rateLimitStatus) {
-        return res.status(rateLimitStatus.status).json({ error: rateLimitStatus.message });
-    }
-
+    const now = Date.now();
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+    // Implement rate limiting
+    if (!rateLimit.ipCache[ip]) {
+        rateLimit.ipCache[ip] = { count: 0, lastRequest: now };
+    } else {
+        if (now - rateLimit.ipCache[ip].lastRequest < rateLimit.windowMs) {
+            rateLimit.ipCache[ip].count += 1;
+        } else {
+            rateLimit.ipCache[ip] = { count: 1, lastRequest: now };
+        }
+    }
+
+    if (rateLimit.ipCache[ip].count > rateLimit.max) {
+        return res.status(429).json({ error: "Too many requests" });
+    }
+
     const data = getGeoData(ip);
-
-    if (!data) {
-        return res.status(404).json({ error: 'IP address not found' });
-    }
-
     if (data.error) {
-        return res.status(400).json(data);
+        return res.status(404).json({ error: data.error });
     }
 
-    return res.status(200).json(data);
+    res.status(200).json(data);
 }
