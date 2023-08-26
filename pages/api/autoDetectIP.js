@@ -2,7 +2,7 @@ import { getGeoData } from '/lib/getGeoData';
 
 const rateLimit = {
     windowMs: 60 * 1000, // 1 minute
-    max: 5, // 5 requests
+    max: 20, // 20 requests
     ipCache: {}
 };
 
@@ -34,6 +34,6 @@ export default async function handler(req, res) {
         res.status(200).json(data);
     } catch (error) {
         console.error('Internal Server Error:', error);
-        return res.status(500).json({ error: 'Internal Server Error' });
+        return res.status(500).json({ error:  JSON.stringify(error)});
     }
 }
