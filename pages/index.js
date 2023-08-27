@@ -94,13 +94,13 @@ export default function Home() {
 
             <footer className={styles.footer}>
                 <a
-                    href="https://github.com/theshajha/IP-Geocoding-API"
+                    href="https://www.tinyapi.co/service/ip-geolocation-api"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     Powered by{' '}
                     <span className={styles.logo}>
-            TinyAPIs
+             TinyAPIs
           </span>
                 </a>
             </footer>
